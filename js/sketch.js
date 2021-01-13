@@ -1,16 +1,14 @@
-let steamStats;
-let maxCurrentPlayers = 0;
-
+//settings
 let topNumber = 10;
 let circleMargin = 50;
 let circleWeight = 10;
-
-
+//global variables
+let steamStats;
+let maxCurrentPlayers = 0;
 let beginColor;
 let endColor;
-
 let fontDINOTBold;
-
+let title;
 
 function preload() {
 
@@ -31,13 +29,14 @@ function setup() {
     // darker end color based on random begincolor
     endColor = color(red(beginColor) / 2, green(beginColor) / 2, blue(beginColor) / 2);
 
-    let centerX = width / 2;
-    let centerY = height / 2;
+    title = "STEAM - Top " + topNumber + " games by current player count";
+
+    //set html document title
+    document.title = title;
  
     //determin max current players
     if (steamStats && steamStats.data && steamStats.data.length > 0) {
 
-        
         for(let i = 0; i < steamStats.data.length; i++) {
             if (steamStats.data[i].currentPlayers > maxCurrentPlayers) 
             {
@@ -46,9 +45,6 @@ function setup() {
         }
         maxCurrentPlayers = getMaxUpRound(maxCurrentPlayers);
     }
-
-
-    //noLoop();
 }
   
 function draw() {
@@ -57,11 +53,6 @@ function draw() {
 
     noStroke();
     fill(240);
-
-    let title = "STEAM - Top " + topNumber + " games by current player count";
-
-    //set html document title
-    document.title = title;
 
     text(title, 0, 0, width, 100);
 
@@ -82,10 +73,7 @@ function draw() {
             let rectColorB = floor(map(i, 0, topNumber, blue(beginColor), blue(endColor)));
 
             let diameter = map(topNumber - i, 0, topNumber, 0, topNumber * circleMargin);
-            let length = steamStats.data[i].currentPlayers / maxCurrentPlayers / 10 * PI;
-
-            console.log(steamStats.data[i].currentPlayers / maxCurrentPlayers / 10, length);
-
+            let length = map(steamStats.data[i].currentPlayers, 0, maxCurrentPlayers, -PI, PI);
 
             // dark background full circle
             stroke(20);
@@ -93,7 +81,6 @@ function draw() {
 
             // use distance function to determine mouse position is in current circle
             // https://www.youtube.com/watch?v=TaN5At5RWH8&ab_channel=TheCodingTrain
-            let showToolTip = false;
             let d = dist(mouseX, mouseY, centerX, centerY);
             if (d > diameter / 2 - circleWeight / 2 && d < diameter / 2 + circleWeight / 2) {
                 stroke(240);
@@ -134,20 +121,11 @@ function draw() {
 
 function getMaxUpRound(maxNumber) {
 
-    let maxNumberText = String(maxNumber);
-    let firstNumber =  parseInt(maxNumberText.charAt(0));
-    let numberOfZeros = maxNumberText.length;
+    return Math.ceil(maxNumber / Math.pow(10, String(maxNumber).length - 1)) * Math.pow(10, String(maxNumber).length - 1);
+}
 
-    if (firstNumber != 1) {
-        firstNumber += 1;
-        numberOfZeros -= 2;
-    }
+function windowResized() {
 
-    let maxUpRoundNumber = String(firstNumber);
-    for(let i = 0; i < numberOfZeros; i++) maxUpRoundNumber += "0";
-
-console.log(maxUpRoundNumber);
-
-    return parseInt(maxUpRoundNumber);
+    resizeCanvas(windowWidth, windowHeight);
 }
   
