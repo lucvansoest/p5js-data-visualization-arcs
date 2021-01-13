@@ -1,4 +1,4 @@
-// author: Luc van Soest
+// author: Luc van Soest ( ͡° ͜ʖ ͡°)
 
 // global variables for settings used for tweaking the visualisation
 let topNumber = 10; // show top 10 of popular games from larger dataset
