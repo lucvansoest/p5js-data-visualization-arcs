@@ -8,6 +8,7 @@ let circleMargin = 50; // default spacing between arc's visualising the data
 let circleWeight = 10; // default strokeWeight of arc's visualising the data
 let titleHeight = 100;  // default height of title 
 let titleTextSize = 25  // default text size of title 
+let toolTipTextSize = 12  // default text size of tool tip 
 let steamStats; // variable for storing the dataset
 let maxCurrentPlayers = 0; // variable for storing the maximum for the currentPlayers variable from the dataset
 let beginColor; // variable for storing begin color for visualisation
@@ -39,10 +40,11 @@ function setup() {
     // determine colors for use in the visualisation
     beginColor = color(random(123, 200), random(123, 200), random(123, 200));
     // darker end color based on random generated begin color
-    endColor = color(red(beginColor) / 2, green(beginColor) / 2, blue(beginColor) / 2);
+    endColor = color(red(beginColor) / 3, green(beginColor) / 3, blue(beginColor) / 3);
 
-    // compile title bases on setting
-    title = "STEAM - Top " + topNumber + " games by current player count";
+    // compile title bases on setting and date from dataset
+    let steamStatsDate = new Date(steamStats.date);
+    title = 'STEAM - Top ' + topNumber + ' games by current player count (' + steamStatsDate.getDate().toString().padStart(2, '0') + '-' + (steamStatsDate.getMonth() + 1).toString().padStart(2, '0') + '-' + steamStatsDate.getFullYear() + ')';
 
     // set html document title (standard Javascript) nice-to-have
     document.title = title;
@@ -99,10 +101,10 @@ function draw() {
         // We are only showing the top 10 items from the dataset
         for(let i = 0; i < topNumber; i++) {
 
-            // determine the r,g,b-values of fillcolor based on the index and the previously defined begin and endcolor in the setup-function
-            let rectColorR = floor(map(i, 0, topNumber, red(beginColor), red(endColor)));
-            let rectColorG = floor(map(i, 0, topNumber, green(beginColor), green(endColor)));
-            let rectColorB = floor(map(i, 0, topNumber, blue(beginColor), blue(endColor)));
+            // determine the r,g,b-values of fillcolor based on the currentPlayers and the previously defined begin and endcolor in the setup-function
+            let rectColorR = floor(map(steamStats.data[i].currentPlayers, 0, maxCurrentPlayers, red(endColor), red(beginColor)));
+            let rectColorG = floor(map(steamStats.data[i].currentPlayers, 0, maxCurrentPlayers, green(endColor), green(beginColor)));
+            let rectColorB = floor(map(steamStats.data[i].currentPlayers, 0, maxCurrentPlayers, blue(endColor), blue(beginColor)));
 
             // calculate the arc's diameter based on the index from the for loop
             let diameter = map(topNumber - i, 0, topNumber, 0, topNumber * circleMargin);
@@ -141,14 +143,14 @@ function draw() {
             push();
 
             // https://p5js.org/reference/#/p5.Font/textBounds
-            let textBoundsBox = fontDINOTBold.textBounds(activeGameInfo, mouseX, mouseY - 50, 12, CENTER, CENTER);
+            let textBoundsBox = fontDINOTBold.textBounds(activeGameInfo, mouseX, mouseY - 50, toolTipTextSize, CENTER, CENTER);
             fill(240);
             noStroke();
 
             rect(textBoundsBox.x, textBoundsBox.y, textBoundsBox.w + 20, textBoundsBox.h + 20, 7);
             fill(0);
           
-            textSize(12);
+            textSize(toolTipTextSize);
             textAlign(CENTER, CENTER);
             text(activeGameInfo, textBoundsBox.x, textBoundsBox.y, textBoundsBox.w + 20, textBoundsBox.h + 16);
             
@@ -194,5 +196,6 @@ function adaptVisualToCanvas() {
 
     //determine text size (between 12 en 64) for title based on width of your screen
     titleTextSize = map(width, 0, 4096, 12, 64, true);
+    toolTipTextSize =  map(width, 0, 4096, 10, 24, true);
 }
   
