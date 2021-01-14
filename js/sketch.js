@@ -16,7 +16,8 @@ let endColor; // variable for storing end color based on beginColor
 let fontDINOTBold; // variable for storing custom font
 let title; // variable for storing the title for multiple use
 let animationDurationFrames = 120; // duration of startup animation
-let animationFrame = 0; // current frame in animation
+let animationFrame = 1; // current frame in animation
+let animationSpeed = 1.5; // speed of animation
 
 function preload() {
 
@@ -168,7 +169,8 @@ function draw() {
 
     // animation
     if (animationFrame < animationDurationFrames) {
-        animationFrame++;
+        animationFrame += animationSpeed;
+        animationSpeed *= 0.99; // decrease speed of animation
     }
     
 }
