@@ -15,6 +15,8 @@ let beginColor; // variable for storing begin color for visualisation
 let endColor; // variable for storing end color based on beginColor
 let fontDINOTBold; // variable for storing custom font
 let title; // variable for storing the title for multiple use
+let animationDurationFrames = 120; // duration of startup animation
+let animationFrame = 0; // current frame in animation
 
 function preload() {
 
@@ -69,6 +71,7 @@ function setup() {
         // after determing the maximum value for currentPlayers, use this to calculate a nice round maximum value for your chart
         maxCurrentPlayers = getMaxUpRound(maxCurrentPlayers);
     }
+
 }
   
 function draw() {
@@ -129,6 +132,11 @@ function draw() {
                 stroke(rectColorR, rectColorG, rectColorB);
             }
 
+            // animation 
+            if (animationFrame < animationDurationFrames) {
+                endPosition = map(animationFrame, 0, animationDurationFrames, -PI, endPosition);
+            }
+
             //draw actual stats arc based on previously calculated values
             arc(centerX, centerY, diameter, diameter, -PI, endPosition);
         }
@@ -157,6 +165,12 @@ function draw() {
             pop();
         }
     }
+
+    // animation
+    if (animationFrame < animationDurationFrames) {
+        animationFrame++;
+    }
+    
 }
 
 function getMaxUpRound(maxNumber) {
