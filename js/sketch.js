@@ -188,6 +188,7 @@ function adaptVisualToCanvas() {
     // substract a margin, we don't want the visual to touch the sides of the canvas
     maxSize -= (maxSize / 4);
 
+    // determine margin between circles and the stroke weight based on the previously calculated maxSize variable based on the canvas size
     circleMargin = Math.floor(maxSize / topNumber);
     circleWeight = Math.floor(circleMargin / 5);
 
