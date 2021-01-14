@@ -130,7 +130,7 @@ function draw() {
         if (activeDataIndex >= 0) {
 
             // get active object from dataset and compile tool tip text
-            let activeGameInfo = steamStats.data[activeDataIndex].game.toUpperCase() + ' (' + steamStats.data[activeDataIndex].game.currentPlayers + ')';
+            let activeGameInfo = steamStats.data[activeDataIndex].game.toUpperCase() + ' (' + steamStats.data[activeDataIndex].currentPlayers + ')';
 
             // show nice tool tip with rounder corners. Size of tool tip is calculated by using the textBounds function
             push();
