@@ -2,10 +2,12 @@
 
 // global variables for settings used for tweaking the visualisation
 let topNumber = 10; // show top 10 of popular games from larger dataset
-let circleMargin = 50; // spacing between arc's visualising the data
-let circleWeight = 10; // strokeWeight of arc's visualising the data
 
 // global variables for storing values for use in multiple functions
+let circleMargin = 50; // default spacing between arc's visualising the data
+let circleWeight = 10; // default strokeWeight of arc's visualising the data
+let titleHeight = 100;  // default height of title 
+let titleTextSize = 25  // default text size of title 
 let steamStats; // variable for storing the dataset
 let maxCurrentPlayers = 0; // variable for storing the maximum for the currentPlayers variable from the dataset
 let beginColor; // variable for storing begin color for visualisation
@@ -27,9 +29,11 @@ function setup() {
     //create canvas based on size of browser window
     createCanvas(windowWidth, windowHeight);
 
+    //adapt the size of the visual based on canvas size
+    adaptVisualToCanvas();
+
     // set global text properties
     textAlign(CENTER, CENTER);
-    textSize(24);
     textFont(fontDINOTBold);
 
     // determine colors for use in the visualisation
@@ -70,14 +74,15 @@ function draw() {
     // set dark background color
     background(15);
 
-    // draw title on visualisation
+    // draw title on visualisation 
+    textSize(titleTextSize); 
     noStroke();
     fill(240);
-    text(title, 0, 0, width, 100);
+    text(title, 0, 0, width, titleHeight);
 
     // determine the center of your canvas for drawing your visualisation
     let centerX = width / 2;
-    let centerY = height / 2;
+    let centerY = height / 2 + (titleHeight / 3);
 
     // variable for storing the index of the active object in your dataset based on mouseover
     // variable is later used to generate a tool tip
@@ -162,5 +167,31 @@ function windowResized() {
 
     //resize canvas when browser windows is resized
     resizeCanvas(windowWidth, windowHeight);
+
+    //adapt the size of the visual based on canvas size
+    adaptVisualToCanvas();
+}
+
+function adaptVisualToCanvas() {
+
+    //get smallest size, width or height from canvas to determine max size of the visual
+    let maxSize = 0;
+    if (width > height) //landscape mode
+    {
+        maxSize = height;
+    } 
+    else // portrait mode
+    {
+        maxSize = width;
+    }
+
+    // substract a margin, we don't want the visual to touch the sides of the canvas
+    maxSize -= (maxSize / 4);
+
+    circleMargin = Math.floor(maxSize / topNumber);
+    circleWeight = Math.floor(circleMargin / 5);
+
+    //determine text size (between 12 en 64) for title based on width of your screen
+    titleTextSize = map(width, 0, 4096, 12, 64, true);
 }
   
