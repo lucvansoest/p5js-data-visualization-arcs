@@ -15,9 +15,11 @@ let beginColor; // variable for storing begin color for visualisation
 let endColor; // variable for storing end color based on beginColor
 let fontDINOTBold; // variable for storing custom font
 let title; // variable for storing the title for multiple use
-let animationDurationFrames = 120; // duration of startup animation
+let animationDurationFrames = 90; // duration of startup animation
 let animationFrame = 1; // current frame in animation
 let animationSpeed = 1.5; // speed of animation
+
+let currentStatsIndex = 0; // default take first stats-data from dataset
 
 function preload() {
 
@@ -41,38 +43,10 @@ function setup() {
     textFont(fontDINOTBold);
 
     // determine colors for use in the visualisation
-    beginColor = color(random(123, 200), random(123, 200), random(123, 200));
-    // darker end color based on random generated begin color
-    endColor = color(red(beginColor) / 3, green(beginColor) / 3, blue(beginColor) / 3);
+    initializeColors();
 
-    // compile title bases on setting and date from dataset
-    let steamStatsDate = new Date(steamStats.date);
-    title = 'STEAM - Top ' + topNumber + ' games by current player count (' + steamStatsDate.getDate().toString().padStart(2, '0') + '-' + (steamStatsDate.getMonth() + 1).toString().padStart(2, '0') + '-' + steamStatsDate.getFullYear() + ')';
-
-    // set html document title (standard Javascript) nice-to-have
-    document.title = title;
- 
     // determine max current players
-    // loop trough array to find the largest value for currentPlayers
-    if (steamStats && steamStats.data && steamStats.data.length > 0) {
-
-        // check if number of items in dataset is not smaller then the topNumber-setting
-        if (steamStats.data.length < topNumber) {
-            topNumber = steamStats.data.length;
-        }
-
-        for(let i = 0; i < steamStats.data.length; i++) {
-            //check if the current value is greater then the previously set max
-            if (steamStats.data[i].currentPlayers > maxCurrentPlayers) 
-            {
-                // If so, set new maximum
-                maxCurrentPlayers = steamStats.data[i].currentPlayers;
-            }
-        }
-        // after determing the maximum value for currentPlayers, use this to calculate a nice round maximum value for your chart
-        maxCurrentPlayers = getMaxUpRound(maxCurrentPlayers);
-    }
-
+    determineMaximumCurrentPlayers();
 }
   
 function draw() {
@@ -80,15 +54,26 @@ function draw() {
     // set dark background color
     background(15);
 
+    // compile title bases on setting and date from dataset
+    let steamStatsDate = new Date(steamStats.data[currentStatsIndex].date);
+    title = 'STEAM - Top ' + topNumber + ' games by current player count (' + steamStatsDate.getDate().toString().padStart(2, '0') + '-' + (steamStatsDate.getMonth() + 1).toString().padStart(2, '0') + '-' + steamStatsDate.getFullYear() + ')';
+
+    // set html document title (standard Javascript) nice-to-have
+    document.title = title;
+
     // draw title on visualisation 
     textSize(titleTextSize); 
     noStroke();
     fill(240);
     text(title, 0, 0, width, titleHeight);
 
+    fill(beginColor);
+    textSize(Math.floor(titleTextSize / 1.2)); 
+    text('click to view the stats from the next date', 0, height - titleHeight, width, titleHeight);
+
     // determine the center of your canvas for drawing your visualisation
     let centerX = width / 2;
-    let centerY = height / 2 + (titleHeight / 3);
+    let centerY = height / 2 + (titleHeight / 6);
 
     // variable for storing the index of the active object in your dataset based on mouseover
     // variable is later used to generate a tool tip
@@ -101,20 +86,20 @@ function draw() {
         strokeWeight(circleWeight);
         noFill();
 
-        // loop trough dataset. Notice the variable 'topNumber' instead of steamStats.data.length. 
+        // loop trough dataset. Notice the variable 'topNumber' instead of steamStats.data[currentStatsIndex].stats.length. 
         // We are only showing the top 10 items from the dataset
         for(let i = 0; i < topNumber; i++) {
 
             // determine the r,g,b-values of fillcolor based on the currentPlayers and the previously defined begin and endcolor in the setup-function
-            let rectColorR = floor(map(steamStats.data[i].currentPlayers, 0, maxCurrentPlayers, red(endColor), red(beginColor)));
-            let rectColorG = floor(map(steamStats.data[i].currentPlayers, 0, maxCurrentPlayers, green(endColor), green(beginColor)));
-            let rectColorB = floor(map(steamStats.data[i].currentPlayers, 0, maxCurrentPlayers, blue(endColor), blue(beginColor)));
+            let rectColorR = floor(map(steamStats.data[currentStatsIndex].stats[i].currentPlayers, 0, maxCurrentPlayers, red(endColor), red(beginColor)));
+            let rectColorG = floor(map(steamStats.data[currentStatsIndex].stats[i].currentPlayers, 0, maxCurrentPlayers, green(endColor), green(beginColor)));
+            let rectColorB = floor(map(steamStats.data[currentStatsIndex].stats[i].currentPlayers, 0, maxCurrentPlayers, blue(endColor), blue(beginColor)));
 
             // calculate the arc's diameter based on the index from the for loop
             let diameter = map(topNumber - i, 0, topNumber, 0, topNumber * circleMargin);
 
-            // calculate the arc's end position based on the currentPlayers-value from the current object (steamStats.data[i])
-            let endPosition = map(steamStats.data[i].currentPlayers, 0, maxCurrentPlayers, -PI, PI);
+            // calculate the arc's end position based on the currentPlayers-value from the current object (steamStats.data[currentStatsIndex].stats[i])
+            let endPosition = map(steamStats.data[currentStatsIndex].stats[i].currentPlayers, 0, maxCurrentPlayers, -PI, PI);
 
             // draw dark background full circle, no function, just nice visuals
             stroke(20);
@@ -146,7 +131,7 @@ function draw() {
         if (activeDataIndex >= 0) {
 
             // get active object from dataset and compile tool tip text
-            let activeGameInfo = steamStats.data[activeDataIndex].game.toUpperCase() + ' (' + steamStats.data[activeDataIndex].currentPlayers + ')';
+            let activeGameInfo = steamStats.data[currentStatsIndex].stats[activeDataIndex].game.toUpperCase() + ' (' + steamStats.data[currentStatsIndex].stats[activeDataIndex].currentPlayers + ')';
 
             // show nice tool tip with rounder corners. Size of tool tip is calculated by using the textBounds function
             push();
@@ -211,7 +196,61 @@ function adaptVisualToCanvas() {
     circleWeight = Math.floor(circleMargin / 5);
 
     //determine text size (between 12 en 64) for title based on width of your screen
-    titleTextSize = map(width, 0, 4096, 12, 64, true);
+    titleTextSize = map(width, 0, 4096, 12, 48, true);
+    titleHeight = map(width, 0, 4096, 20, 100, true);
     toolTipTextSize =  map(width, 0, 4096, 10, 24, true);
+}
+
+function mouseClicked() {
+
+    if (steamStats) {
+
+        currentStatsIndex++;
+
+        if (currentStatsIndex >= steamStats.data.length) {
+            currentStatsIndex = 0;
+        }
+
+        //reset animation variables
+        animationFrame = 1; // current frame in animation
+        animationSpeed = 1.5; // speed of animation
+
+        initializeColors();
+
+        // determine max current players
+        determineMaximumCurrentPlayers();
+    }
+}
+
+function initializeColors() {
+
+    // determine colors for use in the visualisation
+    beginColor = color(random(123, 200), random(123, 200), random(123, 200));
+    // darker end color based on random generated begin color
+    endColor = color(red(beginColor) / 3, green(beginColor) / 3, blue(beginColor) / 3);
+}
+
+function determineMaximumCurrentPlayers() {
+
+    // loop trough array to find the largest value for currentPlayers
+    if (steamStats) {
+
+        // check if number of items in dataset is not smaller then the topNumber-setting
+        if (steamStats.data[currentStatsIndex].stats.length < topNumber) {
+            topNumber = steamStats.data[currentStatsIndex].stats.length;
+        }
+
+        for(let i = 0; i < steamStats.data[currentStatsIndex].stats.length; i++) {
+            //check if the current value is greater then the previously set max
+            if (steamStats.data[currentStatsIndex].stats[i].currentPlayers > maxCurrentPlayers) 
+            {
+                // If so, set new maximum
+                maxCurrentPlayers = steamStats.data[currentStatsIndex].stats[i].currentPlayers;
+            }
+        }
+        // after determing the maximum value for currentPlayers, use this to calculate a nice round maximum value for your chart
+        maxCurrentPlayers = getMaxUpRound(maxCurrentPlayers);
+    }
+
 }
   
