@@ -133,12 +133,21 @@ function draw() {
             // get active object from dataset and compile tool tip text
             let activeGameInfo = steamStats.data[currentStatsIndex].stats[activeDataIndex].game.toUpperCase() + ' (' + steamStats.data[currentStatsIndex].stats[activeDataIndex].currentPlayers + ')';
 
+            // differnt background color for most popular game tool tip
+            if (steamStats.data[currentStatsIndex].stats[activeDataIndex].mostPopular) {
+                fill(254, 219, 0);
+                activeGameInfo = 'MOST POPULAR GAME\n' + activeGameInfo;
+            }
+            else {
+                fill(240);
+            }
+
             // show nice tool tip with rounder corners. Size of tool tip is calculated by using the textBounds function
             push();
 
             // https://p5js.org/reference/#/p5.Font/textBounds
             let textBoundsBox = fontDINOTBold.textBounds(activeGameInfo, mouseX, mouseY - 50, toolTipTextSize, CENTER, CENTER);
-            fill(240);
+            
             noStroke();
 
             rect(textBoundsBox.x, textBoundsBox.y, textBoundsBox.w + 20, textBoundsBox.h + 20, 7);
