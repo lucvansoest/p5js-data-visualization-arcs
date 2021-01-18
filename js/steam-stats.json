@@ -1210,6 +1210,611 @@
           "game": "Russian Fishing 4"
         }
       ]
+    },
+    {
+      "date": "2021-01-18T08:26:00+01:00",
+      "stats" : [
+        {
+          "mostPopular": true,
+          "currentPlayers": 502317,
+          "peakToday": 1080127,
+          "game": "Counter-Strike: Global Offensive"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 313687,
+          "peakToday": 675377,
+          "game": "Dota 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 225127,
+          "peakToday": 453629,
+          "game": "PLAYERUNKNOWN'S BATTLEGROUNDS"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 121165,
+          "peakToday": 229412,
+          "game": "Rust"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 84313,
+          "peakToday": 151585,
+          "game": "Grand Theft Auto V"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 82181,
+          "peakToday": 101357,
+          "game": "Team Fortress 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 61384,
+          "peakToday": 143259,
+          "game": "Path of Exile"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 60615,
+          "peakToday": 109142,
+          "game": "Apex Legends"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 59692,
+          "peakToday": 112885,
+          "game": "Tom Clancy's Rainbow Six Siege"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 52358,
+          "peakToday": 60427,
+          "game": "Wallpaper Engine"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 51388,
+          "peakToday": 101699,
+          "game": "Cyberpunk 2077"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 4768,
+          "peakToday": 85355,
+          "game": "ARK: Survival Evolved"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 46984,
+          "peakToday": 79534,
+          "game": "Stardew Valley"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 45254,
+          "peakToday": 138401,
+          "game": "Source SDK Base 2013 Multiplayer"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 33252,
+          "peakToday": 5225,
+          "game": "Warframe"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 31647,
+          "peakToday": 101757,
+          "game": "Rocket League"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 30075,
+          "peakToday": 48408,
+          "game": "Destiny 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 28668,
+          "peakToday": 91505,
+          "game": "Football Manager 2021"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 27945,
+          "peakToday": 54011,
+          "game": "Monster Hunter: World"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 27924,
+          "peakToday": 50622,
+          "game": "Dead by Daylight"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 26653,
+          "peakToday": 41619,
+          "game": "Terraria"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 25569,
+          "peakToday": 49661,
+          "game": "Sid Meier's Civilization VI"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 24669,
+          "peakToday": 3937,
+          "game": "PAYDAY 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 23691,
+          "peakToday": 83917,
+          "game": "Among Us"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 20743,
+          "peakToday": 27415,
+          "game": "Unturned"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 19791,
+          "peakToday": 36823,
+          "game": "War Thunder"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 19459,
+          "peakToday": 3355,
+          "game": "Don't Starve Together"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 19194,
+          "peakToday": 345,
+          "game": "7 Days to Die"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 18169,
+          "peakToday": 42155,
+          "game": "Garry's Mod"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 17131,
+          "peakToday": 31333,
+          "game": "Eternal Return: Black Survival"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 16797,
+          "peakToday": 29043,
+          "game": "Red Dead Redemption 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 16744,
+          "peakToday": 35529,
+          "game": "Phasmophobia"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 16697,
+          "peakToday": 37128,
+          "game": "Total War: WARHAMMER II"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 16689,
+          "peakToday": 3487,
+          "game": "Hearts of Iron IV"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 16161,
+          "peakToday": 39932,
+          "game": "DayZ"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 1608,
+          "peakToday": 22647,
+          "game": "VRChat"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 15247,
+          "peakToday": 28239,
+          "game": "Cities: Skylines"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 15034,
+          "peakToday": 23088,
+          "game": "RimWorld"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 14506,
+          "peakToday": 24793,
+          "game": "Left 4 Dead 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 14438,
+          "peakToday": 27948,
+          "game": "The Elder Scrolls V: Skyrim Special Edition"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 1397,
+          "peakToday": 28921,
+          "game": "Sid Meier's Civilization V"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 13949,
+          "peakToday": 33723,
+          "game": "The Witcher 3: Wild Hunt"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 13792,
+          "peakToday": 2116,
+          "game": "Black Desert Online"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 13698,
+          "peakToday": 24853,
+          "game": "FINAL FANTASY XIV Online"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 13643,
+          "peakToday": 25998,
+          "game": "Bloons TD 6"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 13389,
+          "peakToday": 33762,
+          "game": "World of Tanks Blitz"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 13018,
+          "peakToday": 22703,
+          "game": "Hades"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 12965,
+          "peakToday": 28638,
+          "game": "Sea of Thieves"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 12398,
+          "peakToday": 2767,
+          "game": "The Elder Scrolls Online"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10841,
+          "peakToday": 21327,
+          "game": "Fallout 4"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10433,
+          "peakToday": 22044,
+          "game": "SMITE"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10396,
+          "peakToday": 28622,
+          "game": "Football Manager 2020"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10392,
+          "peakToday": 18033,
+          "game": "Stellaris"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10367,
+          "peakToday": 20867,
+          "game": "Mount & Blade II: Bannerlord"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10267,
+          "peakToday": 17845,
+          "game": "DARK SOULS� III"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10181,
+          "peakToday": 25254,
+          "game": "Brawlhalla"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10136,
+          "peakToday": 17535,
+          "game": "NBA 2K20"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 10009,
+          "peakToday": 42937,
+          "game": "Euro Truck Simulator 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 9994,
+          "peakToday": 15042,
+          "game": "tModLoader"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 977,
+          "peakToday": 24976,
+          "game": "Europa Universalis IV"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 9762,
+          "peakToday": 17092,
+          "game": "NBA 2K21"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 9598,
+          "peakToday": 32327,
+          "game": "Age of Empires II: Definitive Edition"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 9492,
+          "peakToday": 27793,
+          "game": "Spacewar"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 9258,
+          "peakToday": 36344,
+          "game": "Farming Simulator 19"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 9251,
+          "peakToday": 17412,
+          "game": "The Forest"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 9012,
+          "peakToday": 19109,
+          "game": "?????8 Heroes of the Three Kingdoms 8"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 8859,
+          "peakToday": 25572,
+          "game": "Arma 3"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 8822,
+          "peakToday": 17846,
+          "game": "Raft"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 8808,
+          "peakToday": 26884,
+          "game": "EA SPORTS� FIFA 21"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 8642,
+          "peakToday": 12865,
+          "game": "Yu-Gi-Oh! Duel Links"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 8238,
+          "peakToday": 17524,
+          "game": "Factorio"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 8145,
+          "peakToday": 14084,
+          "game": "Fall Guys: Ultimate Knockout"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 7963,
+          "peakToday": 18557,
+          "game": "Crusader Kings III"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 7794,
+          "peakToday": 12656,
+          "game": "Soundpad"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 7712,
+          "peakToday": 1343,
+          "game": "Oxygen Not Included"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 7442,
+          "peakToday": 10531,
+          "game": "Slay the Spire"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 7431,
+          "peakToday": 13679,
+          "game": "Total War: THREE KINGDOMS"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 726,
+          "peakToday": 13366,
+          "game": "World of Warships"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 7248,
+          "peakToday": 14024,
+          "game": "The Sims� 4"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6921,
+          "peakToday": 15155,
+          "game": "Satisfactory"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6915,
+          "peakToday": 15313,
+          "game": "Divinity: Original Sin 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6806,
+          "peakToday": 11717,
+          "game": "Halo: The Master Chief Collection"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6714,
+          "peakToday": 11759,
+          "game": "Fallout: New Vegas"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6683,
+          "peakToday": 9594,
+          "game": "Risk of Rain 2"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6674,
+          "peakToday": 22596,
+          "game": "Counter-Strike"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6555,
+          "peakToday": 13626,
+          "game": "Red Dead Online"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6434,
+          "peakToday": 15232,
+          "game": "Conan Exiles"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 6095,
+          "peakToday": 7343,
+          "game": "NGU IDLE"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5954,
+          "peakToday": 13808,
+          "game": "Elite Dangerous"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5938,
+          "peakToday": 13245,
+          "game": "Source SDK Base 2007"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5876,
+          "peakToday": 12927,
+          "game": "STAR WARS�: The Old Republic�"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5567,
+          "peakToday": 16586,
+          "game": "Paladins"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5501,
+          "peakToday": 10033,
+          "game": "Albion Online"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5462,
+          "peakToday": 17188,
+          "game": "eFootball PES 2021 SEASON UPDATE"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5425,
+          "peakToday": 1137,
+          "game": "Deep Rock Galactic"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5396,
+          "peakToday": 11509,
+          "game": "Far Cry 5"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5349,
+          "peakToday": 11452,
+          "game": "Assassin's Creed Odyssey"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5144,
+          "peakToday": 10138,
+          "game": "Borderlands 3"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5137,
+          "peakToday": 16851,
+          "game": "Tabletop Simulator"
+        },
+        {
+          "mostPopular": false,
+          "currentPlayers": 5084,
+          "peakToday": 6771,
+          "game": "Aim Lab"
+        }
+      ]
     }
   ]
 }
