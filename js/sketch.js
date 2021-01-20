@@ -46,7 +46,30 @@ function setup() {
     initializeColors();
 
     // determine max current players
-    determineMaximumCurrentPlayers();
+
+    // loop trough dataset to find the largest value for currentPlayers
+    if (steamStats) {
+
+        for(let i = 0; i < steamStats.data.length; i++) {
+
+            // check if number of items in dataset is not smaller then the topNumber-setting
+            if (steamStats.data[i].stats.length < topNumber) {
+                topNumber = steamStats.data[i].stats.length;
+            }
+
+            for(let j = 0; j < steamStats.data[i].stats.length; j++) {
+                //check if the current value is greater then the previously set max
+                if (steamStats.data[i].stats[j].currentPlayers > maxCurrentPlayers) 
+                {
+                    // If so, set new maximum
+                    maxCurrentPlayers = steamStats.data[i].stats[j].currentPlayers;
+                }
+            }
+        }
+
+        // after determing the maximum value for currentPlayers, use this to calculate a nice round maximum value for your chart
+        maxCurrentPlayers = getMaxUpRound(maxCurrentPlayers);
+    }
 }
   
 function draw() {
@@ -238,28 +261,3 @@ function initializeColors() {
     // darker end color based on random generated begin color
     endColor = color(red(beginColor) / 3, green(beginColor) / 3, blue(beginColor) / 3);
 }
-
-function determineMaximumCurrentPlayers() {
-
-    // loop trough array to find the largest value for currentPlayers
-    if (steamStats) {
-
-        // check if number of items in dataset is not smaller then the topNumber-setting
-        if (steamStats.data[currentStatsIndex].stats.length < topNumber) {
-            topNumber = steamStats.data[currentStatsIndex].stats.length;
-        }
-
-        for(let i = 0; i < steamStats.data[currentStatsIndex].stats.length; i++) {
-            //check if the current value is greater then the previously set max
-            if (steamStats.data[currentStatsIndex].stats[i].currentPlayers > maxCurrentPlayers) 
-            {
-                // If so, set new maximum
-                maxCurrentPlayers = steamStats.data[currentStatsIndex].stats[i].currentPlayers;
-            }
-        }
-        // after determing the maximum value for currentPlayers, use this to calculate a nice round maximum value for your chart
-        maxCurrentPlayers = getMaxUpRound(maxCurrentPlayers);
-    }
-
-}
-  
